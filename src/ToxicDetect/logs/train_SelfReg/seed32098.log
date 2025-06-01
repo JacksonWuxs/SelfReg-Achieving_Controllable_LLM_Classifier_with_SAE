@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/home/myid/xw54582/ToxicDetect/train_SelfReg_clf.py", line 60, in <module>
-    train_data, valid_data, test1_data, test2_data = load_datasets(config.seed, layer=l)
-  File "/home/myid/xw54582/ToxicDetect/pipelines.py", line 146, in load_datasets
-    train_data = GroupPairActvDataset("datasets/safety_%s_train" % model, layer)
-  File "/home/myid/xw54582/ToxicDetect/datautils.py", line 91, in __init__
-    self._data = sorted([_ for _ in os.listdir(fpath) if _.startswith("group_") and _.endswith(".pkl")])
-FileNotFoundError: [Errno 2] No such file or directory: 'datasets/safety_mistral_train_l16_last'
