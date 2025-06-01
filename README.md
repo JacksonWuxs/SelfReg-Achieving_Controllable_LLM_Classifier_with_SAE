@@ -1,10 +1,10 @@
-# SelfReg: Self-Regularizing LLM-based Classifiers on Unintended Features
+# SelfReg: Regularizing LLM-based Classifiers on Unintended Features
 
-#### Introduction
+### Introduction
 
 This is the official implementation of the paper [Self-Regularization with Sparse Autoencoders for Controllable LLM-based Classification](https://arxiv.org/abs/2502.14133) (accepted by KDD 2025). In the paper, we introduced a novel regularization strategy to regularize the use of "unintended features" for LLM-based text classifiers, where the unintended features can be sensitive attributes for privacy/fairness purposes or shortcut patterns for generlizability. We evaluate our proposed method on three real world datasets, namely "ToxicChat",  "RewardBench", and "Dxy". We consider `Mistral-7B-inst-v0.2` as our backbone LLM and we pre-train our SAEs for it with 113 million tokens over 5 epochs. 
 
-#### Environement
+### Environement
 
 We assume that you manage the environment with Conda library.
 
@@ -14,7 +14,7 @@ We assume that you manage the environment with Conda library.
 >>> pip install -U requirements.txt
 ```
 
-#### Pre-training Sparse Autoencoders
+### Pre-training Sparse Autoencoders
 
 All the material to pre-train SAEs is located in the folder ``src/PretrainSAE``, in which you will see the TopK SAE implemented in ``autoencoders.py`` and the hooks in ``llm_surgery.py`` to mount/dismount SAEs on the LLMs. The pre-training data is in the ``datasets/prompt_dataset_train.tsv``. To pre-train the SAEs, you shall run the following commands. 
 
@@ -34,7 +34,7 @@ All the material to pre-train SAEs is located in the folder ``src/PretrainSAE``,
 
 With 1 Nvidia-A6000 GPU, Step-1 requires around 8 hours, and Step-2 needs about 20 hours. The pre-trained model weight will be saved at ``outputs/TopK7_l16_h65k_epoch5.pth``. For your convinience, you may want to download the pre-trained weight from Huggingface: [wuxs/Mistral_TopK_SAE_l16](https://huggingface.co/wuxs/Mistral_TopK_SAE_l16).
 
-#### Fine-tuning Sparse Autoencoders
+### Fine-tuning Sparse Autoencoders
 
 All the material to fine-tune SAEs is located in the folder ``src/FinetuneSAEs``. You can run with the following comands.
 
@@ -55,7 +55,7 @@ All the material to fine-tune SAEs is located in the folder ``src/FinetuneSAEs``
 
 The fine-tuned SAE weights will be save at ``outputs/TopK7_l16_h65k_FT_epochX_X.pth``. You may want to download our fine-tuned SAEs from Huggingface: [wuxs/Mistral_TopK_SAE_l16_FT_ToxicDetect](https://huggingface.co/wuxs/Mistral_TopK_SAE_l16_FT_ToxicDetect), [wuxs/Mistral_TopK_SAE_l16_FT_RewardModeling](https://huggingface.co/wuxs/Mistral_TopK_SAE_l16_FT_RewardModeling), and [wuxs/Mistral_TopK_SAE_l16_FT_DiseaseDiagnosis](https://huggingface.co/wuxs/Mistral_TopK_SAE_l16_FT_DiseaseDiagnosis), respectively.
 
-#### Self-Regulariztion Training 
+### Self-Regulariztion Training 
 
 For each dataset, we conduct experiments on independent folders, i.e., ``src/ToxicDetect/``, ``src/RewardModeling``, and ``src/DiseaseDiagnosis/``. Since the structures and pipelines are pretty similar across the datasets, we only provide 1 examplar code as following.
 
