@@ -16,7 +16,7 @@ We assume that you manage the environment with Conda library.
 
 ### Pre-training Sparse Autoencoders
 
-All the material to pre-train SAEs is located in the folder ``src/PretrainSAE``, in which you will see the TopK SAE implemented in ``autoencoders.py`` and the hooks in ``llm_surgery.py`` to mount/dismount SAEs on the LLMs. The pre-training data is in the ``datasets/prompt_dataset_train.tsv``. To pre-train the SAEs, you shall run the following commands. 
+Most of the materials to pre-train SAEs are located in the folder ``src/PretrainSAE``, in which you will see the TopK SAE implemented in ``autoencoders.py`` and the hooks in ``llm_surgery.py`` to mount/dismount SAEs on the LLMs. To pre-train SAEs, you shall first download the source dataset from https://drive.google.com/drive/folders/11uBH-2R03ctePervS9fdy3O7ZU5HDaLt?usp=sharing and then put it in the ``datasets/prompt_dataset_train.tsv``. To pre-train the SAEs, you shall run the following commands. 
 
 ```shell
 >>> cd src/PretrainSAE
