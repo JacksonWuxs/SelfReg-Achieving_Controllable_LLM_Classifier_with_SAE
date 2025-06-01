@@ -1,4 +1,4 @@
-# Controllable LLM-based Classifier
+# SelfReg: Self-Regularizing LLM-based Classifiers on Unintended Features
 
 #### Introduction
 
