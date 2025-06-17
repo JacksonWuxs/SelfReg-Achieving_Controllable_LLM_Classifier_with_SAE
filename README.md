@@ -42,9 +42,9 @@ All the material to fine-tune SAEs is located in the folder ``src/FinetuneSAEs``
 >>> cd src/FinetuneSAE
 
 # Step-1: Collect hidden representations from LLMs for three datasets on GPU0:
->>> nohup python -u create_actvs_TDorRM.py 0 1 TD train > logs/collect_actvs_TD.log & 378
->>> nohup python -u create_actvs_TDorRM.py 0 1 RM train > logs/collect_actvs_RM.log & 149 
->>> nohup python -u create_actvs_DD.py 0 1 DD train > logs/collect_actvs_DD.log & 59
+>>> nohup python -u create_actvs_TDorRM.py 0 1 TD train > logs/collect_actvs_TD.log & 
+>>> nohup python -u create_actvs_TDorRM.py 0 1 RM train > logs/collect_actvs_RM.log &  
+>>> nohup python -u create_actvs_DD.py 0 1 DD train > logs/collect_actvs_DD.log & 
 
 # Step-2: Fine-tune SAEs on three datasets on GPU0
 >>> nohup python -u finetune_SAE.py 0 ../PretrainSAE/outputs/TopK7_l16_h65k_epoch5.pth TD 378 5 > logs/finetune_TD.log &
