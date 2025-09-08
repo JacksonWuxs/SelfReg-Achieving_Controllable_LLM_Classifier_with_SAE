@@ -11,7 +11,7 @@ import transformers as trf
 
 from corpus import CorpusSearchIndex
 from generator import Generator
-from autoencoder3 import load_pretrained, MaskTopK, normalized_l2
+from autoencoder import load_pretrained, MaskTopK, normalized_l2
 from llm_surgery import switch_mode, mount_function
 from datautils import GroupActvDataset
 
